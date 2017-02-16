@@ -1,0 +1,24 @@
+{
+    "name": "vinicius/challenge-accepted",
+    "type": "project",
+    "require": {
+        "silex/silex": "^2.0",
+        "twig/twig": "^2.1",
+        "predis/service-provider": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Vinicius de Sa Souza",
+            "email": "vinicius@programador.eti.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ClimaTempo\\Challenge\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    }
+}
