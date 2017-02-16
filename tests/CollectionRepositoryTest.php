@@ -2,7 +2,7 @@
 
 namespace ClimaTempo\Challenge\Tests;
 
-use Doctrine\Common\Collections\{ArrayCollection, Criterea};
+use Doctrine\Common\Collections\{ArrayCollection, ExpressionBuilder, Criteria};
 use ClimaTempo\Challenge\Exception\EntityNotFoundException;
 use ClimaTempo\Challenge\{CollectionRepository, EntityInterface, Id};
 use PHPUnit\Framework\TestCase;
@@ -28,6 +28,42 @@ class JsonRepositoryTest extends TestCase
 
 		$repository = new CollectionRepository($collection);
 		$this->assertSame($entity, $repository->findOne($id));
+	}
+
+	public function testFindDevePassarCritereaParaOArrayCollection()
+	{
+		$entity = new class implements EntityInterface
+		{
+			protected $id;
+
+			protected $nome;
+
+			public function __construct()
+			{
+				$this->id = new Id(1);
+				$this->nome = 'Abc';
+			}
+
+			public function getId(): Id
+			{
+				return $this->id;
+			}
+
+			public function getNome(): string
+			{
+				return $this->nome;
+			}
+		};
+
+		$collection = new ArrayCollection([$entity]);
+		$repository = new CollectionRepository($collection);
+
+		$eb = new ExpressionBuilder();
+		$criterea = new Criteria($eb->contains('nome', 'b'));
+
+		$result = $repository->find($criterea);
+		$this->assertCount(1, $result);
+		$this->assertSame($result->first(), $entity);
 	}
 
 }

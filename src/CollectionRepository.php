@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace ClimaTempo\Challenge;
 
-use Doctrine\Common\Collections\{ArrayCollection, Criterea};
+use Doctrine\Common\Collections\{ArrayCollection, Criteria};
 use ClimaTempo\Challenge\Exception\EntityNotFoundException;
 
 class CollectionRepository
@@ -18,7 +18,7 @@ class CollectionRepository
 		$this->collection = $collection;
 	}
 
-	public function find(Criterea $criterea): ArrayCollection
+	public function find(Criteria $criterea): ArrayCollection
 	{
 		return $this->collection->matching($criterea);
 	}
