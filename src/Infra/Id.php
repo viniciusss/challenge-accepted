@@ -1,5 +1,5 @@
 <?php
-namespace ClimaTempo\Challenge;
+namespace ClimaTempo\Challenge\Infra;
 
 class Id
 {

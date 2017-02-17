@@ -1,11 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace ClimaTempo\Challenge;
+namespace ClimaTempo\Challenge\Infra;
 
 use Doctrine\Common\Collections\{ArrayCollection, Criteria};
-use ClimaTempo\Challenge\Exception\EntityNotFoundException;
+use ClimaTempo\Challenge\Infra\Exception\EntityNotFoundException;
 
+/**
+ * Class CollectionRepository
+ * @package ClimaTempo\Challenge
+ */
 class CollectionRepository
 {
 	/**

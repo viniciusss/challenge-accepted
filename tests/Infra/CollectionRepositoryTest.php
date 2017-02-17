@@ -1,10 +1,10 @@
 <?php
 
-namespace ClimaTempo\Challenge\Tests;
+namespace ClimaTempo\Challenge\Tests\Infra;
 
 use Doctrine\Common\Collections\{ArrayCollection, ExpressionBuilder, Criteria};
-use ClimaTempo\Challenge\Exception\EntityNotFoundException;
-use ClimaTempo\Challenge\{CollectionRepository, EntityInterface, Id};
+use ClimaTempo\Challenge\Infra\Exception\EntityNotFoundException;
+use ClimaTempo\Challenge\Infra\{CollectionRepository, EntityInterface, Id};
 use PHPUnit\Framework\TestCase;
 
 class JsonRepositoryTest extends TestCase
